@@ -4,6 +4,7 @@ import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import Usuario from './usuario.js'
 
 export default class UsuarioHasRole extends BaseModel {
+  public static table = 'usuario_has_roles'
   @column({ isPrimary: true })
   declare id_usu_rol: number
   @column() declare rol_id: number
