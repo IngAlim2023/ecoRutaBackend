@@ -8,8 +8,7 @@ export default class PerfilesController {
       const { nombre, apellido, nickname, nivel, ultima_vez, usuario_id } = request.body()
 
       const nickExist = await perfile.findByNick(nickname)
-      console.log(nickExist)
-      if (nickExist.length > 1) return response.status(403).json({ msg: 'El nickname existe' })
+      if (nickExist) return response.status(403).json({ msg: 'El nickname existe' })
 
       const nPerfile = await perfile.create({
         nombre,
