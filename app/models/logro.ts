@@ -3,6 +3,7 @@ import UsuarioHasLogro from './usuario_has_logro.js'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 export default class Logro extends BaseModel {
+  public static table = 'logros'
   @column({ isPrimary: true })
   declare id_logro: number
 
