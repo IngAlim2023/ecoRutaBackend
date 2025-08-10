@@ -6,13 +6,12 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id_ruta')
-      table.decimal('origen_latitud', 11,8).notNullable()
-      table.decimal('origen_longitud', 11,8).notNullable()
-      table.decimal('destino_latitud', 11,8).notNullable()
-      table.decimal('destino_longitud', 11,8).notNullable()
+      table.decimal('origen_latitud', 11, 8).notNullable()
+      table.decimal('origen_longitud', 11, 8).notNullable()
+      table.decimal('destino_latitud', 11, 8).notNullable()
+      table.decimal('destino_longitud', 11, 8).notNullable()
       table.enum('transporte', ['bicicleta', 'caminata', 'transporte_publico']).notNullable()
       table.timestamp('fecha_created_at').defaultTo(this.now())
-      
     })
   }
 

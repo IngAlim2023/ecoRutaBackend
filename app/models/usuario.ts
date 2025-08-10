@@ -26,6 +26,6 @@ export default class Usuario extends BaseModel {
   @hasMany(() => Recorrido)
   declare recorridos: HasMany<typeof Recorrido>
 
-  @hasMany(()=> UsuarioHasLogro)
+  @hasMany(() => UsuarioHasLogro)
   declare usuarioHasLogros: HasMany<typeof UsuarioHasLogro>
 }

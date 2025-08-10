@@ -10,10 +10,9 @@ export default class UsuarioHasLogro extends BaseModel {
   @column() declare usuario_id: number
   @column() declare logro_id: number
 
-  @belongsTo(()=> Usuario, {foreignKey:'usuario_id'})
+  @belongsTo(() => Usuario, { foreignKey: 'usuario_id' })
   declare usuario: BelongsTo<typeof Usuario>
 
-  @belongsTo(()=> Logro, {foreignKey:'logro_id'})
+  @belongsTo(() => Logro, { foreignKey: 'logro_id' })
   declare logro: BelongsTo<typeof Logro>
-
 }

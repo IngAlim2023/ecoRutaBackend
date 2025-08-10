@@ -7,8 +7,14 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id_rank')
       table.integer('puntos', 10).notNullable().notNullable().defaultTo(0)
-      table.integer('usuario_id').unsigned().references('id_usuario').inTable('usuarios').notNullable().onDelete('CASCADE').onUpdate('CASCADE')
-      
+      table
+        .integer('usuario_id')
+        .unsigned()
+        .references('id_usuario')
+        .inTable('usuarios')
+        .notNullable()
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
     })
   }
 

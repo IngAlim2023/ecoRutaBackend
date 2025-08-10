@@ -14,7 +14,7 @@ export default class extends BaseSchema {
         .inTable('roles')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
-        table
+      table
         .integer('usuario_id')
         .notNullable()
         .unsigned()
@@ -22,7 +22,6 @@ export default class extends BaseSchema {
         .inTable('usuarios')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
-      
     })
   }
 

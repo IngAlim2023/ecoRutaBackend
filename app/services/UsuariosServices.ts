@@ -24,6 +24,6 @@ export default class UsuariosServices {
     return await Usuario.query()
       .select('id_usuario', 'email', 'password', 'auth_provider')
       .where('email', email)
-      .firstOrFail()
+      .first()
   }
 }

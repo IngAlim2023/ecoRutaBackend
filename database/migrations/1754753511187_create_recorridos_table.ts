@@ -9,7 +9,7 @@ export default class extends BaseSchema {
       table.timestamp('fecha').notNullable().defaultTo(this.now())
       table.decimal('distancia').notNullable()
       table.integer('tiempo_minutos').unsigned().notNullable()
-      table.decimal('co2',5,2).notNullable()
+      table.decimal('co2', 5, 2).notNullable()
 
       table
         .integer('ruta_id')
@@ -27,8 +27,6 @@ export default class extends BaseSchema {
         .inTable('usuarios')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
-
-      
     })
   }
 

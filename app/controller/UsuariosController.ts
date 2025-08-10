@@ -66,7 +66,7 @@ export default class UsuariosController {
         expiresIn: '1h',
       })
 
-      return response.status(200).json({ msg: 'Autorizado', token: token, usuario:payload })
+      return response.status(200).json({ msg: 'Autorizado', token: token, usuario: payload })
     } catch (e) {
       return response.status(500).json({ msg: 'Error interno.', error: e })
     }
@@ -76,13 +76,15 @@ export default class UsuariosController {
       const { token } = request.body()
 
       if (!token) {
-        return response.status(403).json({ msg: 'No autorizado', token: '', usuario:'' })
+        return response.status(403).json({ msg: 'No autorizado', token: '', usuario: '' })
       }
 
       const usuario = jwt.verify(token, env.get('APP_KEY'))
-      return response.status(200).json({ msg: 'Autorizado', token:token,usuario:usuario })
+      return response.status(200).json({ msg: 'Autorizado', token: token, usuario: usuario })
     } catch (e) {
-      return response.status(403).json({ msg: 'Token inválido o expirado', error: e, token: '', usuario:'' })
+      return response
+        .status(403)
+        .json({ msg: 'Token inválido o expirado', error: e, token: '', usuario: '' })
     }
   }
 }

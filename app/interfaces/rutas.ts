@@ -1,2 +1,1 @@
-export type RutasTransporteEnum = 'bicicleta'| 'caminata' | 'transporte_publico';
-
+export type RutasTransporteEnum = 'bicicleta' | 'caminata' | 'transporte_publico'

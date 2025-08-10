@@ -9,7 +9,6 @@ export default class Ranking extends BaseModel {
   @column() declare puntos: number
   @column() declare usuario_id: number
 
-  @belongsTo(()=> Usuario, {foreignKey:'usuario_id'})
+  @belongsTo(() => Usuario, { foreignKey: 'usuario_id' })
   declare usuario: BelongsTo<typeof Usuario>
-
 }

@@ -14,11 +14,9 @@ export default class Recorrido extends BaseModel {
   @column() declare ruta_id: number
   @column() declare usuario_id: number
 
-
-  @belongsTo(()=> Ruta, {foreignKey:'ruta_id'})
+  @belongsTo(() => Ruta, { foreignKey: 'ruta_id' })
   declare ruta: BelongsTo<typeof Ruta>
 
-  @belongsTo(()=> Usuario, {foreignKey:'usuario_id'})
+  @belongsTo(() => Usuario, { foreignKey: 'usuario_id' })
   declare usuario: BelongsTo<typeof Usuario>
-  
 }
