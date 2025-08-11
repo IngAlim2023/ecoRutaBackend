@@ -45,7 +45,7 @@ export default class PerfilesController {
       const nickExist = await perfile.findByNick(nick)
 
       if (nickExist) {
-        return response.status(403).json({ msg: 'El nickname existe', disponible:false })
+        return response.status(200).json({ msg: 'El nickname existe', disponible:false })
       }
 
       return response.status(200).json({ msg: 'Nickname disponible', disponible:true })
