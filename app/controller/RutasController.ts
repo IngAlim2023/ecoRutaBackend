@@ -8,6 +8,7 @@ export default class RutasController {
   async createRoute({ request, response }: HttpContext) {
     try {
       const {
+        nombre,
         origen_latitud,
         origen_longitud,
         destino_latitud,
@@ -17,6 +18,7 @@ export default class RutasController {
       } = request.body()
 
       const data = {
+        nombre,
         origen_latitud,
         origen_longitud,
         destino_latitud,

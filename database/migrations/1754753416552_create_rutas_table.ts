@@ -6,6 +6,7 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id_ruta')
+      table.string('nombre', 45).notNullable()
       table.decimal('origen_latitud', 11, 8).notNullable()
       table.decimal('origen_longitud', 11, 8).notNullable()
       table.decimal('destino_latitud', 11, 8).notNullable()
