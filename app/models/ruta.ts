@@ -7,6 +7,7 @@ export default class Ruta extends BaseModel {
   @column({ isPrimary: true })
   declare id_ruta: number
 
+  @column() declare nombre: string
   @column() declare origen_latitud: number
   @column() declare origen_longitud: number
   @column() declare destino_latitud: number
