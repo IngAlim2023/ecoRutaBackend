@@ -22,7 +22,6 @@ export default class extends BaseSchema {
         .inTable('logros')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
-        .unique()
     })
   }
 

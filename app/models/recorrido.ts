@@ -9,10 +9,10 @@ export default class Recorrido extends BaseModel {
 
   @column() declare fecha: Date
   @column() declare distancia: number
-  @column() declare tiempo_minutos: number
-  @column() declare co2: number
-  @column() declare ruta_id: number
-  @column() declare usuario_id: number
+  @column({ columnName: 'tiempo_minutos' }) declare tiempo_minutos: number
+  @column({ columnName: 'co2' }) declare co2: number
+  @column({ columnName: 'ruta_id' }) declare ruta_id: number
+  @column({ columnName: 'usuario_id' }) declare usuario_id: number
 
   @belongsTo(() => Ruta, { foreignKey: 'ruta_id' })
   declare ruta: BelongsTo<typeof Ruta>

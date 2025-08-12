@@ -12,7 +12,7 @@ export default class Perfile extends BaseModel {
   @column() declare nickname: string
   @column() declare nivel: PerfilesNivelEnum
   @column() declare ultima_vez: Date
-  @column() declare usuario_id: string
+  @column() declare usuario_id: number
 
   @belongsTo(() => Usuario, { foreignKey: 'usuario_id' })
   declare usuario: BelongsTo<typeof Usuario>
