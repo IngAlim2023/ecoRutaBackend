@@ -39,7 +39,7 @@ export default class LogrosController {
     try {
       const { id } = params
       const { descripcion } = request.body()
-      if ( !descripcion) {
+      if (!descripcion) {
         return response.status(400).json({ msg: 'Faltan campos' })
       }
       const logro = await logros.update({ descripcion }, id)

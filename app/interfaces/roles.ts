@@ -1,4 +1,4 @@
-export interface DataRoles{
-    id_rol?:number,
-    nombre: string
+export interface DataRoles {
+  id_rol?: number
+  nombre: string
 }
