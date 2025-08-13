@@ -20,7 +20,14 @@ export default class LogrosController {
     try {
       const nLogros = await logros.readAll()
 
-      return response.status(200).json({ msg: 'Información obtenida', data: nLogros })
+      // 🔹 Normalizamos la respuesta para que use siempre "id"
+      const data = nLogros.map((l) => ({
+        id: l.id_logro,
+        nombre: l.nombre,
+        descripcion: l.descripcion,
+      }))
+
+      return response.status(200).json({ msg: 'Información obtenida', data })
     } catch (e) {
       return response.status(500).json({ msg: 'Error interno.', error: e })
     }
@@ -28,9 +35,19 @@ export default class LogrosController {
   async readLogroById({ params, response }: HttpContext) {
     try {
       const { id } = params
-      const nLogro = await logros.readOne(id)
+      const l = await logros.readOne(id)
 
-      return response.status(200).json({ msg: 'Información obtenida', data: nLogro })
+      if (!l) {
+        return response.status(404).json({ msg: 'No encontrado' })
+      }
+
+      const data = {
+        id: l.id_logro,
+        nombre: l.nombre,
+        descripcion: l.descripcion,
+      }
+
+      return response.status(200).json({ msg: 'Información obtenida', data })
     } catch (e) {
       return response.status(500).json({ msg: 'Error interno.', error: e })
     }
