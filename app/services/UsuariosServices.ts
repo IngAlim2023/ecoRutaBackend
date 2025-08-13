@@ -1,9 +1,23 @@
 import Usuario from '#models/usuario'
+import Rol from '#models/rol'
+import UsuarioHasRole from '#models/usuario_has_role'
 import { DataUsuarios } from '../interfaces/usuarios.js'
 
 export default class UsuariosServices {
   async create(data: DataUsuarios) {
-    return await Usuario.create(data)
+    const adminRole = await Rol.firstOrCreate({ nombre: 'admin' })
+    const userRole = await Rol.firstOrCreate({ nombre: 'usuario' })
+    const usuario = await Usuario.create(data)
+
+    const totalUsuarios = Number((await Usuario.query().count('* as total'))[0].$extras.total)
+    const rolId = totalUsuarios === 1 ? adminRole.id_rol : userRole.id_rol
+
+    await UsuarioHasRole.create({
+      rol_id: rolId,
+      usuario_id: usuario.id_usuario
+    })
+    
+    return usuario
   }
   async readAll() {
     return await Usuario.query().select('id_usuario', 'email')
