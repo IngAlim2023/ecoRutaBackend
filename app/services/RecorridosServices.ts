@@ -1,9 +1,13 @@
+import Ranking from '#models/ranking'
 import Recorrido from '#models/recorrido'
 import { DataRecorrido } from '../interfaces/recorridos.js'
 
 export default class RecorridosServices {
   async create(data: DataRecorrido) {
     return await Recorrido.create(data)
+  }
+  async createPuntaje(puntos: number, usuario_id: number) {
+    return await Ranking.create({ puntos, usuario_id })
   }
   async getByUsuario(usuarioId: number) {
     return await Recorrido.query().where('usuario_id', usuarioId)

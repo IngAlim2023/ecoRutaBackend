@@ -17,6 +17,10 @@ export default class Recorridoscontroller {
         usuario_id,
       })
 
+      const puntaje = parseInt((distancia/100).toFixed(0))
+
+      await recorrido.createPuntaje(puntaje, usuario_id)
+
       return response.status(201).json({ msg: 'Creado', data: newRecorrido })
     } catch (e) {
       return response.status(500).json({
@@ -36,7 +40,7 @@ export default class Recorridoscontroller {
     try {
       const { id } = params
       const recorr = await recorrido.getByUsuario(id)
-      return response.status(200).json({msg:'Informacion obtenida', data: recorr})
+      return response.status(200).json({ msg: 'Informacion obtenida', data: recorr })
     } catch (e) {
       return response.status(500).json({ msg: 'Error interno.', error: e })
     }
@@ -45,7 +49,7 @@ export default class Recorridoscontroller {
     try {
       const { id } = params
       const recorr = await recorrido.getStatsByUsuario(id)
-      return response.status(200).json({msg:'Informacion obtenida', data: recorr})
+      return response.status(200).json({ msg: 'Informacion obtenida', data: recorr })
     } catch (e) {
       return response.status(500).json({ msg: 'Error interno.', error: e })
     }

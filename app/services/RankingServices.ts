@@ -6,6 +6,6 @@ export default class RankingServices {
     return await Ranking.create(data)
   }
   async read() {
-    return await Ranking.query().select('usuario_id').sum('puntos as puntos').groupBy('usuario_id')
+    return await Ranking.query().select('usuario_id').sum('puntos as puntos').groupBy('usuario_id').preload('usuario').orderBy('puntos', 'desc')
   }
 }
